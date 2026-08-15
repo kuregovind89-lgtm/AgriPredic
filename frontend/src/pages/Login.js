@@ -66,7 +66,7 @@ export default function Login() {
           New to AgriPredic? <Link to="/register">Create an account</Link>
         </p>
         <p className="auth-hint">
-          Demo admin: admin@agripredic.com / Admin@123
+          
         </p>
         </div>
       </div>
