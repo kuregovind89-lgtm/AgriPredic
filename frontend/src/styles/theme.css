@@ -1,0 +1,134 @@
+/* ===== AgriPredic Design Tokens =====
+   Palette: deep forest (#0F3D2E), leaf green (#3FA55A), sunbeam amber (#F4B942),
+   soil clay (#8C5E3C), alert red (#E5533C), glass white/black overlays.
+   Type: Poppins for all UI (loaded in index.html) with a strong weight scale.
+*/
+
+:root[data-theme="light"] {
+  --bg-base: #eef5ee;
+  --bg-gradient: radial-gradient(circle at 10% 0%, #d7ecd9 0%, #eef5ee 40%, #e6f2e9 100%);
+  --surface-glass: rgba(255, 255, 255, 0.55);
+  --surface-glass-strong: rgba(255, 255, 255, 0.75);
+  --border-glass: rgba(255, 255, 255, 0.6);
+  --text-primary: #10321f;
+  --text-secondary: #4b6355;
+  --text-muted: #7c9184;
+  --shadow-color: rgba(20, 60, 40, 0.14);
+
+  --brand-forest: #0f3d2e;
+  --brand-leaf: #3fa55a;
+  --brand-leaf-light: #6bc57f;
+  --brand-amber: #f4b942;
+  --brand-clay: #8c5e3c;
+  --brand-red: #e5533c;
+  --brand-blue: #3a86c8;
+}
+
+:root[data-theme="dark"] {
+  --bg-base: #0b1912;
+  --bg-gradient: radial-gradient(circle at 10% 0%, #123423 0%, #0b1912 45%, #0a140f 100%);
+  --surface-glass: rgba(20, 40, 30, 0.55);
+  --surface-glass-strong: rgba(24, 48, 36, 0.75);
+  --border-glass: rgba(120, 190, 150, 0.18);
+  --text-primary: #eaf5ee;
+  --text-secondary: #b6cec0;
+  --text-muted: #82998a;
+  --shadow-color: rgba(0, 0, 0, 0.45);
+
+  --brand-forest: #133a2b;
+  --brand-leaf: #4ac16a;
+  --brand-leaf-light: #79dd93;
+  --brand-amber: #f4c15c;
+  --brand-clay: #a97a52;
+  --brand-red: #f16a54;
+  --brand-blue: #5aa3e0;
+}
+
+html, body, #root {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.glass-card {
+  background: var(--surface-glass);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px var(--shadow-color);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px var(--shadow-color);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-leaf) 0%, var(--brand-forest) 100%);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 18px rgba(63, 165, 90, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(63, 165, 90, 0.45); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.btn-secondary {
+  background: var(--surface-glass-strong);
+  color: var(--text-primary);
+  border: 1px solid var(--border-glass);
+  padding: 11px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-low { background: rgba(63, 165, 90, 0.18); color: var(--brand-leaf); }
+.badge-medium { background: rgba(244, 185, 66, 0.2); color: var(--brand-amber); }
+.badge-high { background: rgba(229, 83, 60, 0.18); color: var(--brand-red); }
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-glass);
+  background: var(--surface-glass-strong);
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--brand-leaf);
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: fadeSlideUp 0.5s ease both; }
+
+@keyframes leafSway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+.leaf-icon { display: inline-block; animation: leafSway 3s ease-in-out infinite; transform-origin: bottom center; }

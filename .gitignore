@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+.env
+
+# Node
+node_modules/
+build/
+.env.local
+
+# Dataset
+backend/dataset/
+
+# DB / uploads / model artifacts
+*.db
+backend/uploads/*
+backend/ml/saved_model/
+
+# IDE
+.vscode/
+
+# OS
+.DS_Store
